@@ -59,7 +59,6 @@ def BDconect():
  except FileNotFoundError:
     messagebox.showerror("Ошибка","\nНет подключения к серверу. Откройте меню настройки и выберите пункт сервер и введите данные о сервере\n") 
 def btn_bd7():
-  BDconect()
   def namepac7(event):
       def namepac8(event):
         click_point = "@%s,%s" % (event.x, event.y)
@@ -752,7 +751,8 @@ def btn_bd7():
                              sd1.append(bq)
                              sd=sd1
        txtd7.tag_config("likes", foreground='#d2d2d2', underline=1) 
-       txtd7.tag_bind("likes", "<1>",namepac7)                              
+       txtd7.tag_bind("likes", "<1>",namepac7)
+     BDconect()                                
      PackageName = PackageName_entry1.get()
      versionName = versionName_entry1.get()
      number1 = collection.count_documents({'$and': [{'Package': PackageName},{'Version': versionName}]})
@@ -795,7 +795,7 @@ def btn_bd7():
            txtd7.insert(INSERT,'\n')
           #txtd7.insert(INSERT,"у даного пакета нет зависимости")
   root7=Tk()
-  def btnReturn7(e):
+  def btnReturn7(e): 
    sda()
  
   def limitSizeDay2(event):
